@@ -16,11 +16,11 @@ git pull
 
 ### Sealed Secrets in action
 
-1. The observant among you will have noticed that in the previous exercise we created a secret for git and added it to the cluster WITHOUT putting it in git...😳 Lets start by fixing this and sealing our Git credentials so they can be safely checked in to the code. First, we'll create the secret in a tmp directory. Make sure you have your gitlab user and PAT from the previous exercise set in your environment
+1. The observant among you will have noticed that in the previous exercise we created a secret for git and added it to the cluster WITHOUT putting it in git...😳 Lets start by fixing this and sealing our Git credentials so they can be safely checked in to the code. First, we'll create the secret in a tmp directory. Make sure you have your gitlab user and password from the previous exercise set in your environment
 
     ```bash
     echo ${GITLAB_USER}
-    echo ${GITLAB_PAT}
+    echo ${GITLAB_PASSWORD}
     ```
 
 2. Run this command to generate a Kubernetes secret object in `/tmp` with the right annotations and labels needed for Tekton and Jenkins later.
@@ -31,7 +31,7 @@ git pull
     apiVersion: v1
     data:
       username: "$(echo -n ${GITLAB_USER} | base64 -w0)"
-      password: "$(echo -n ${GITLAB_PAT} | base64 -w0)"
+      password: "$(echo -n ${GITLAB_PASSWORD} | base64 -w0)"
     type: kubernetes.io/basic-auth
     metadata:
       annotations:

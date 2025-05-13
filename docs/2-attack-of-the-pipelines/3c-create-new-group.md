@@ -65,7 +65,7 @@ team will be easy following the next instructions.
     oc get pods -n ${TEAM_NAME}-ci-cd
     ```
 
-10. We are going to create a Gitlab Personal Access Token (PAT). The token is a more secure and reliable method for accessing Gitlab from our scripts later on. Note, that for reference's sake, you can also generate a PAT in Gitlab under User > Settings > Access Tokens in the Web UI. We use a helper script here to help automate that process. To generate the token, open a terminal if you have not got one open and run the following commands.
+10. Set your GitLab credentials
 
     <p class="tip">
     The Gitlab user must be the same used to create the <b>team group</b>, and the <b>tech-exercise</b> project. Currently, only the owners are allowed to commit changes.
@@ -86,18 +86,6 @@ team will be easy following the next instructions.
     <p class="tip">
     ⛷️ <b>TIP</b> ⛷️ - If your password includes special characters, try putting it in single quotes. ie: <strong>'A8y?Rpm!9+A3B/KG'</strong>
     </p>
-
-    Generate your Gitlab PAT.
-
-    ```bash
-    gitlab_pat
-    ```
-
-    Echo the `GITLAB_PAT` environment variable.
-
-    ```bash
-    echo $GITLAB_PAT
-    ```
 
 11. We could update our local `tech-exercise` project with the latest content:
 

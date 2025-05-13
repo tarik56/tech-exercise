@@ -37,7 +37,7 @@ All of these traits lead to one outcome - the ability to build and release quali
 5. On the new view, use `tech-exercise` as Project Name, select **Internal** for Visibility level, then hit Create project. Make sure the project is in the group you created previously and not the username's.
 ![gitlab-new-project](images/gitlab-new-project-2.png)
 
-6. We are going to create a Gitlab Personal Access Token (PAT). The token is a more secure and reliable method for accessing Gitlab from our scripts later on. Note, that for reference's sake, you can also generate a PAT in Gitlab under User > Settings > Access Tokens in the Web UI. We use a helper script here to help automate that process. To generate the token, open a terminal in the CodeReady Workspace if you have not got one open and run the following commands.
+6. Set your GitLab credentials
 
     Export your Gitlab username.
 
@@ -142,7 +142,7 @@ All of these traits lead to one outcome - the ability to build and release quali
     cat <<EOF | oc apply -n ${TEAM_NAME}-ci-cd -f -
       apiVersion: v1
       data:
-        password: "$(echo -n ${GITLAB_PAT} | base64 -w0)"
+        password: "$(echo -n ${GITLAB_PASSWORD} | base64 -w0)"
         username: "$(echo -n ${GITLAB_USER} | base64 -w0)"
       kind: Secret
       type: kubernetes.io/basic-auth
