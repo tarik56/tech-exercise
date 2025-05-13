@@ -55,26 +55,6 @@ All of these traits lead to one outcome - the ability to build and release quali
     ⛷️ <b>TIP</b> ⛷️ - If your password includes special characters, try putting it in single quotes. ie: <strong>'A8y?Rpm!9+A3B/KG'</strong>
     </p>
 
-    Generate your Gitlab PAT.
-
-    ```bash
-    gitlab_pat
-    ```
-
-    Echo the `GITLAB_PAT` environment variable.
-
-    ```bash
-    echo $GITLAB_PAT
-    ```
-    
-    ..and lets persist it for now:
-    ```bash
-    echo "export GITLAB_PAT=${GITLAB_PAT}"  | tee -a ~/.bashrc -a ~/.zshrc
-    ```
-
-    We can see the PAT printed out on the command line, it is also stored in an environment variable called `GITLAB_PAT`
-
-    ![gitlab-pat](images/gitlab-pat.png)
 
 7. Let's push our code to the GitLab server. Back in your CodeReady Workspace from the terminal
 
@@ -83,7 +63,7 @@ All of these traits lead to one outcome - the ability to build and release quali
     git remote set-url origin https://${GIT_SERVER}/${TEAM_NAME}/tech-exercise.git
     ```
 
-    Use the `GITLAB_PAT` from above when you are prompted for the password (this will be cached)
+    Use your GitLab credentials from above when you are prompted for the password (this will be cached)
 
     ```bash#test
     cd /projects/tech-exercise
